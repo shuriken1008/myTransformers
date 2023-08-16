@@ -16,6 +16,7 @@ Optimus Prime figure I ordered. Enclosed are copies of my records concerning
 this purchase. I expect to hear from you soon. Sincerely, Bumblebee."""
 
 
-outputs = classifier(text)
-pd.DataFrame(outputs)
-
+reader = pipeline("question-answering")
+question = "What does the customer want?" # 顧客は何を求めていますか？
+outputs = reader(question=question, context=text)
+pd.DataFrame([outputs])
